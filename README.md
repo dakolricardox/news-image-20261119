@@ -30,15 +30,29 @@ python3 main.py
 Writes `entry.png` to `$MAKEFUN_OUTPUT_DIR` if set, otherwise
 `<script dir>/output/entry.png`. Requires Pillow; stdlib otherwise.
 
-## Determinism
-
-No network access, no clock reads, no randomness: two runs are byte-identical
-(verified with `cmp`). All fonts are DejaVu (with a deterministic fallback
-chain); all geometry is fixed integer math.
-
 ## Files
 
 - `main.py` — the entrypoint (single file, Pillow + stdlib)
-- `output/entry.png` — rendered 1024x1024 front page
+- `vendor/pillow.whl` — vendored Pillow 12.3.0 wheel (sha256
+  `0847a763...8b6d3`, verified against PyPI). The competition sandbox image
+  ships Python 3.13 without Pillow or fonts, so `main.py` unpacks this wheel
+  into a scratch dir at startup only when Pillow is missing, imports the full
+  API (PNG encoder included), then removes the scratch tree.
+- `vendor/fonts/` — the four DejaVu TTFs the page uses. They are tried
+  before the system font paths, so rendering is independent of the host font
+  stack (and of host vs. sandbox freetype version skew — the committed PNG
+  was rendered with exactly these).
+- `output/entry.png` — rendered 1024x1024 front page (rendered inside the
+  competition sandbox image, so the committed file matches the graded run
+  byte-for-byte)
 - `.makefun/owner.json` — owner wallet
 - `LICENSE` — MIT
+
+## Determinism
+
+No network access, no clock reads, no randomness: two runs are byte-identical
+(verified with `cmp` inside the competition sandbox image). All fonts are
+DejaVu (with a deterministic fallback chain); all geometry is fixed integer
+math. The committed PNG was rendered in the exact grader environment
+(Python 3.13.17 + vendored Pillow 12.3.0), so host font-stack differences
+cannot change the graded bytes.
