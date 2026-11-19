@@ -119,6 +119,11 @@ def masthead(d):
     d.rectangle([M, 14, W - M, 92], fill=RED)
     center(d, W / 2, 28, "THE NIMBLE GLOBE", F(40, bold=True, serif=True), CREAM)
     center(d, W / 2, 76, "ONE DAY'S WORLD NEWS, IN ONE PICTURE", F(12, bold=True), CREAM)
+    # globe emblem, right side of masthead
+    gx, gy = W - M - 36, 53
+    d.ellipse([gx - 18, gy - 18, gx + 18, gy + 18], outline=CREAM, width=2)
+    d.ellipse([gx - 9, gy - 18, gx + 9, gy + 18], outline=CREAM, width=1)
+    d.line([gx - 18, gy, gx + 18, gy], fill=CREAM, width=1)
     d.rectangle([M, 100, W - M, 103], fill=INK)
     d.rectangle([M, 106, W - M, 107], fill=INK)
 
