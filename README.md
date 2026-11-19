@@ -1,8 +1,13 @@
 # The NIMBLE GLOBE — 19 November 2026 front page
 
+[![make.fun · news-image-20261119](https://make.fun/badge/news-image-20261119.svg)](https://make.fun/bounty/news-image-20261119?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261119)
+[![rank](https://make.fun/badge/news-image-20261119/dakolricardox/news-image-20261119/rank.svg)](https://make.fun/bounty/news-image-20261119/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261119)
+[![reward](https://make.fun/badge/news-image-20261119/dakolricardox/news-image-20261119/reward.svg)](https://make.fun/bounty/news-image-20261119?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261119)
+
 A deterministic 1024x1024 PNG newspaper front page, rendered with Python + Pillow
 only, summarizing the world news of Thursday 19 November 2026 on one cream
-editorial page.
+editorial page. Built for the make.fun "Sum up 19 November's world news in one
+image" competition (https://make.fun/bounty/news-image-20261119).
 
 ## What the page shows
 
